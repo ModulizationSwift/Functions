@@ -19,3 +19,10 @@ public func main(_ function: @escaping () -> Void) {
     DispatchQueue.main.async(execute: function)
 }
 
+
+/// Execute the block after interval since now
+public func delay(_ interval: TimeInterval, execute: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(wallDeadline: interval) { 
+        execute()
+    }
+}
